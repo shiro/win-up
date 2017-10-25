@@ -1,4 +1,3 @@
-; #InstallKeybdHook
 SetCapsLockState, alwaysoff
 
 ; esc isn't useful, feel free to put anything here
@@ -7,11 +6,7 @@ CapsLock::Esc
 ; vim like arrow keys
 #IfWinNotActive, ahk_group idea
 !h::send {Left}
-!j::
-	WinGetClass, this_title, A
-	tooltip % "wow " . this_title
-	send {Down}
-	return
+!j::send {Down}
 !k::send {Up}
 !l::send {Right}
 
@@ -24,7 +19,7 @@ CapsLock::Esc
 ; exit the script
 #F3::exitApp
 
-; ctrl/esc mod
+; ctrl/esc-modifier key
 *Esc::
 	Send {LControl down}
 	;time_of_last_esc := A_TickCount
@@ -36,12 +31,14 @@ CapsLock::Esc
 	Send {LControl up}
 	;msgbox % A_PriorKey
 	if (A_PriorKey=="Escape"){
-		;if (A_TickCount - time_of_last_esc < 1000){
-			;Suspend On
-			;msgbox % A_TickCount - time_OF_LAST_ESc
-			Send, {Esc}
-			;Suspend Off
-		;}
+		prefix = 
+		if GetKeyState("LCtrl", "P")
+			prefix .= "^"
+		if GetKeyState("Shift", "P")
+			prefix .= "+"
+		if GetKeyState("Alt", "P")
+			prefix .= "!"
+		Send(prefix . "{Esc}")
 	}
 	Return
 
@@ -56,13 +53,13 @@ Tab up::
 
 ; virtual desktop movement
 ~Tab & l::
-	if GetKeyState("Alt", "P")
+	if GetKeyState("Esc", "P")
 		globalDesktopManager._windowMover.moveActiveWindowToNextDesktop(true)
 	else
 		globalDesktopManager._desktopChanger.goToNextDesktop()
 	return
 ~Tab & h::
-	if GetKeyState("Alt", "P")
+	if GetKeyState("Esc", "P")
 		globalDesktopManager._windowMover.moveActiveWindowToPreviousDesktop(true)
 	else
 		globalDesktopManager._desktopChanger.goToPreviousDesktop()
