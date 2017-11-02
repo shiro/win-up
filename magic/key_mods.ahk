@@ -42,13 +42,20 @@ CapsLock::Esc
 	}
 	Return
 
+; prevent triggering tab on press down
 Tab::return
+
+; fix quick alt-tabbing
+~!Tab::
+	ALTTAB_MODE := true
+	return
 
 ; tab-modifier key
 Tab up::
-	if (A_PriorKey=="Tab"){
+	if (A_PriorKey=="Tab" && !ALTTAB_MODE){
 		Send {Tab}
 	}
+	ALTTAB_MODE := false
 	Return
 
 ; virtual desktop movement
@@ -68,7 +75,6 @@ Tab up::
 	globalDesktopManager._desktopChanger.goToDesktop(TOGGLE_DT_ID)
 	TOGGLE_DT_ID := TOGGLE_DT_ID = 1 ? 2 : 1
 	return
-
 
 ; modifier + anything
 tabModKey(keys){
