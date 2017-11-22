@@ -3,6 +3,14 @@ SetCapsLockState, alwaysoff
 ; esc isn't useful, feel free to put anything here
 CapsLock::Esc
 
+; vim like explorer navigation
+#IfWinActive ahk_class CabinetWClass
+
+!h::send !{Up}
+!l::send {Enter}
+
+#IfWinActive
+
 ; vim like arrow keys
 #IfWinNotActive, ahk_group idea
 !h::send {Left}
@@ -124,3 +132,5 @@ Tab & w::tabModKey("w")
 Tab & x::tabModKey("x")
 Tab & y::tabModKey("y")
 Tab & z::tabModKey("z")
+
+
