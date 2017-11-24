@@ -134,3 +134,49 @@ Tab & y::tabModKey("y")
 Tab & z::tabModKey("z")
 
 
+; special chars
+!a::Send ä
+!+a::Send Ä
+!e::Send ë
+!+e::Send Ë
+!u::Send ü
+!+u::Send Ü
+!o::Send ö
+!+o::Send Ö
+!b::Send ß
+!c::Send č
+!+c::Send Č
+!s::Send š
+!+s::Send Š
+!z::Send ž
+!+z::Send Ž
+
+; fractions
+:?O:;1/2::½
+:?O:;1/3::⅓
+:?O:;1/4::¼
+:?O:;1/5::⅕
+:?O:;1/6::⅙
+:?O:;1/8::⅛
+:?O:;2/3::⅔
+:?O:;2/5::⅖
+:?O:;3/4::¾
+:?O:;3/5::⅗
+:?O:;3/8::⅜
+:?O:;4/5::⅘
+:?O:;5/6::⅚
+:?O:;5/8::⅝
+:?O:;7/8::⅞
+
+; other symbols
+:?O:;2exp::²
+:?O:;3exp::³
+:?O:;copyright::©
+:?O:;degree::°
+:?O:;euro::€
+:?O:;lol::笑
+:?O:;micro::µ
+:?O:;neko::猫
+:?O:;pound::£
+:?O:;shiro::白
+:?O:;usagi::兎

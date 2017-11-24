@@ -125,33 +125,6 @@ WinMinimizeAllButActive(){
 }
 
 
-
-; Special chars
-!a::Send ä
-!+a::Send Ä
-!e::Send ë
-!+e::Send Ë
-!u::Send ü
-!+u::Send Ü
-!o::Send ö
-!+o::Send Ö
-!b::Send ß
-!c::Send č
-!+c::Send Č
-!s::Send š
-!+s::Send Š
-!z::Send ž
-!+z::Send Ž
-
-
-:?O:;2exp::²
-:?O:;3exp::³
-:?O:;lol::笑
-:?O:;neko::猫
-:?O:;shiro::白
-:?O:;usagi::兎
-
-
 ;~WheelDown::
 ;MouseGetPos,,,,Control,1
 ;If (Control = "MSTaskListWClass1") ; Taskbar control
