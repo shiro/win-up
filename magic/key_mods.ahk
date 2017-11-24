@@ -1,4 +1,4 @@
-SetCapsLockState, alwaysoff
+﻿SetCapsLockState, alwaysoff
 
 ; esc isn't useful, feel free to put anything here
 CapsLock::Esc
