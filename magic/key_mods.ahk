@@ -21,6 +21,10 @@ CapsLock::Esc
 ; also with C modifier
 !^l::Send ^{Right}
 !^h::Send ^{Left}
+
+; also with CS modifier
+!^+l::Send ^+{Right}
+!^+h::Send ^+{Left}
 #IfWinNotActive
 
 
