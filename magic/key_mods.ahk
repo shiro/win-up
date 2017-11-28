@@ -184,3 +184,5 @@ Tab & z::tabModKey("z")
 :?O:;pound::£
 :?O:;shiro::白
 :?O:;usagi::兎
+:?O:;shrug::¯\_(ツ)_/¯
+
