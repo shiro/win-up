@@ -34,15 +34,12 @@ CapsLock::Esc
 ; ctrl/esc-modifier key
 *Esc::
 	Send {LControl down}
-	;time_of_last_esc := A_TickCount
-	; msgbox % A_TickCount
+	time_of_last_esc := A_TickCount
 	Return
-
 
 *Esc up::
 	Send {LControl up}
-	;msgbox % A_PriorKey
-	if (A_PriorKey=="Escape"){
+	if (A_PriorKey=="Escape" && (A_TickCount - time_of_last_esc) < 200){
 		prefix = 
 		if GetKeyState("LCtrl", "P")
 			prefix .= "^"
