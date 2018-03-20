@@ -1,9 +1,11 @@
+SetWorkingDir %A_ScriptDir%
 DetectHiddenWindows, On
 
 hwnd:=WinExist("ahk_pid " . DllCall("GetCurrentProcessId","Uint"))
 hwnd+=0x1000<<32
 
-hVirtualDesktopAccessor := DllCall("LoadLibrary", Str, "lib\VirtualDesktopAccessor.dll", "Ptr") 
+hVirtualDesktopAccessor := DllCall("LoadLibrary", Str, A_ScriptDir "\lib\VirtualDesktopAccessor.dll", "Ptr") 
+
 
 global GoToDesktopNumberProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "GoToDesktopNumber", "Ptr")
 global RegisterPostMessageHookProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "RegisterPostMessageHook", "Ptr")

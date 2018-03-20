@@ -5,8 +5,10 @@
 #MaxHotkeysPerInterval 1000
 #InstallMouseHook
 
+#Include %A_ScriptDir%
 
 ; Executable code
+
 
 #include magic
 	#include virtual_desktops.ahk
