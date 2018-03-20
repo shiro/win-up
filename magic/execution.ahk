@@ -11,12 +11,12 @@ GroupAdd, idea, ahk_class SunAwtDialog ; popup dialog
 
 
 ; desktoop manager
-globalDesktopManager := new JPGIncDesktopManagerClass()
-globalDesktopManager
-    .setMoveWindowToDesktop("^#")
-    .setGoToNextDesktop("#s")
-    .setGoToPreviousDesktop("#a")
-    .setMoveWindowToNextDesktop("^#s")
-    .setMoveWindowToPreviousDesktop("^#a")
-    .setCloseDesktop("#w")
-    .setNewDesktop("#r")
+;globalDesktopManager := new JPGIncDesktopManagerClass()
+;globalDesktopManager
+;    .setMoveWindowToDesktop("^#")
+;    .setGoToNextDesktop("#s")
+;    .setGoToPreviousDesktop("#a")
+;    .setMoveWindowToNextDesktop("^#s")
+;    .setMoveWindowToPreviousDesktop("^#a")
+;    .setCloseDesktop("#w")
+;    .setNewDesktop("#r")

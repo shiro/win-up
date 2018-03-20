@@ -19,12 +19,12 @@ CapsLock::Esc
 !l::send {Right}
 
 ; also with C modifier
-!^l::Send ^{Right}
-!^h::Send ^{Left}
+!^l::send ^{Right}
+!^h::send ^{Left}
 
 ; also with CS modifier
-!^+l::Send ^+{Right}
-!^+h::Send ^+{Left}
+!^+l::send ^+{Right}
+!^+h::send ^+{Left}
 #IfWinNotActive
 
 
@@ -51,7 +51,7 @@ CapsLock::Esc
 			prefix .= "+"
 		if GetKeyState("Alt", "P")
 			prefix .= "!"
-		Send(prefix . "{Esc}")
+		send % prefix . "{Esc}"
 	}
 	Return
 
@@ -74,36 +74,44 @@ Tab up::
 ; virtual desktop movement
 ~Tab & l::
 	if GetKeyState("Esc", "P")
-		globalDesktopManager._windowMover.moveActiveWindowToNextDesktop(true)
+        MoveAndGoToNextDesktop()
 	else
-		globalDesktopManager._desktopChanger.goToNextDesktop()
+        GoToNextDesktop()
 	return
+
 ~Tab & h::
 	if GetKeyState("Esc", "P")
-		globalDesktopManager._windowMover.moveActiveWindowToPreviousDesktop(true)
+        MoveAndGoToPrevDesktop()
 	else
-		globalDesktopManager._desktopChanger.goToPreviousDesktop()
+        GoToPrevDesktop()
 	return
-~Tab & i::
-	globalDesktopManager._desktopChanger.goToDesktop(TOGGLE_DT_ID)
-	TOGGLE_DT_ID := TOGGLE_DT_ID = 1 ? 2 : 1
+
+
+; window managemeent
+tabModWindow(n){
+	if GetKeyState("Esc", "P")
+        MoveAndGoToDesktop(n)
+	else
+		GoToDesktop(n)
 	return
+}
 
 ; modifier + anything
 tabModKey(keys){
-	Send("^+!" . keys)
+	send % "^+!" + keys
 }
 
+Tab & 0::tabModWindow(10)
+Tab & 1::tabModWindow(1)
+Tab & 2::tabModWindow(2)
+Tab & 3::tabModWindow(3)
+Tab & 4::tabModWindow(4)
+Tab & 5::tabModWindow(5)
+Tab & 6::tabModWindow(6)
+Tab & 7::tabModWindow(7)
+Tab & 8::tabModWindow(8)
+Tab & 9::tabModWindow(9)
 Tab & '::tabModKey("'")
-~Tab & 1::globalDesktopManager._desktopChanger.goToDesktop(1)
-~Tab & 2::globalDesktopManager._desktopChanger.goToDesktop(2)
-~Tab & 3::globalDesktopManager._desktopChanger.goToDesktop(3)
-~Tab & 4::globalDesktopManager._desktopChanger.goToDesktop(4)
-~Tab & 5::globalDesktopManager._desktopChanger.goToDesktop(5)
-~Tab & 6::globalDesktopManager._desktopChanger.goToDesktop(6)
-~Tab & 7::globalDesktopManager._desktopChanger.goToDesktop(7)
-~Tab & 8::globalDesktopManager._desktopChanger.goToDesktop(8)
-~Tab & 9::globalDesktopManager._desktopChanger.goToDesktop(9)
 Tab & ,::tabModKey(",")
 Tab & -::tabModKey("-")
 Tab & .::tabModKey(".")
@@ -121,6 +129,7 @@ Tab & e::tabModKey("e")
 Tab & f::tabModKey("f")
 Tab & g::tabModKey("g")
 Tab & j::tabModKey("j")
+~Tab & i::tabModKey("i")
 Tab & k::tabModKey("k")
 Tab & m::tabModKey("m")
 Tab & n::tabModKey("n")
