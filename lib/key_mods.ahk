@@ -96,7 +96,7 @@ tabModKey(keys){
 ~Tab & u::tabModWindow(5)
 ~Tab & i::tabModWindow(6)
 ~Tab & o::tabModWindow(7)
-~Tab & p::tabModWindow(8)
+~Tab & y::tabModWindow(8)
 
 ; misc keys
 Tab & 0::tabModKey("0")
@@ -128,6 +128,7 @@ Tab & e::tabModKey("e")
 Tab & f::tabModKey("f")
 Tab & g::tabModKey("g")
 Tab & m::tabModKey("m")
+Tab & p::tabModKey("p")
 Tab & n::tabModKey("n")
 Tab & q::tabModKey("q")
 Tab & r::tabModKey("r")
@@ -136,7 +137,6 @@ Tab & t::tabModKey("t")
 Tab & v::tabModKey("v")
 Tab & w::tabModKey("w")
 Tab & x::tabModKey("x")
-Tab & y::tabModKey("y")
 Tab & z::tabModKey("z")
 
 
