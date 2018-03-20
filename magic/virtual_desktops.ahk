@@ -37,7 +37,7 @@ OnMessage(0x1400 + 30, "VWMess")
 currentDesktopPos := _GetCurrentDesktopNumber()
 
 ; make sure there are 10 desktops
-nrOfDesktopsNeeded := 10 -_GetNumberOfDesktops()
+nrOfDesktopsNeeded := 8 -_GetNumberOfDesktops()
 Send #^{d %nrOfDesktopsNeeded%}
 
 ; jump back to inital desktop
