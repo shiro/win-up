@@ -33,11 +33,15 @@ CapsLock::Esc
 
 ; ctrl/esc-modifier key
 *Esc::
-	Send {LControl down}
-	time_of_last_esc := A_TickCount
+	if (!ESC_MOD_DOWN){
+		ESC_MOD_DOWN := true
+		Send {LControl down}
+		time_of_last_esc := A_TickCount
+	}
 	Return
 
 *Esc up::
+	ESC_MOD_DOWN := false
 	Send {LControl up}
 	if (A_PriorKey=="Escape" && (A_TickCount - time_of_last_esc) < 200){
 		prefix = 
