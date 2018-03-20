@@ -71,21 +71,6 @@ Tab up::
 	ALTTAB_MODE := false
 	Return
 
-; virtual desktop movement
-~Tab & l::
-	if GetKeyState("Esc", "P")
-        MoveAndGoToNextDesktop()
-	else
-        GoToNextDesktop()
-	return
-
-~Tab & h::
-	if GetKeyState("Esc", "P")
-        MoveAndGoToPrevDesktop()
-	else
-        GoToPrevDesktop()
-	return
-
 
 ; window managemeent
 tabModWindow(n){
@@ -101,26 +86,40 @@ tabModKey(keys){
 	send % "^+!" + keys
 }
 
-Tab & 0::tabModWindow(10)
-Tab & 1::tabModWindow(1)
-Tab & 2::tabModWindow(2)
-Tab & 3::tabModWindow(3)
-Tab & 4::tabModWindow(4)
-Tab & 5::tabModWindow(5)
-Tab & 6::tabModWindow(6)
-Tab & 7::tabModWindow(7)
-Tab & 8::tabModWindow(8)
-Tab & 9::tabModWindow(9)
+
+; virtual desktops
+~Tab & h::tabModWindow(1)
+~Tab & j::tabModWindow(2)
+~Tab & k::tabModWindow(3)
+~Tab & l::tabModWindow(4)
+
+~Tab & u::tabModWindow(5)
+~Tab & i::tabModWindow(6)
+~Tab & o::tabModWindow(7)
+~Tab & p::tabModWindow(8)
+
+; misc keys
+Tab & 0::tabModKey("0")
+Tab & 1::tabModKey("1")
+Tab & 2::tabModKey("2")
+Tab & 3::tabModKey("3")
+Tab & 4::tabModKey("4")
+Tab & 5::tabModKey("5")
+Tab & 6::tabModKey("6")
+Tab & 7::tabModKey("7")
+Tab & 8::tabModKey("8")
+Tab & 9::tabModKey("9")
+
 Tab & '::tabModKey("'")
 Tab & ,::tabModKey(",")
 Tab & -::tabModKey("-")
 Tab & .::tabModKey(".")
 Tab & /::tabModKey("/")
-Tab & `;::tabModKey(";")
 Tab & =::tabModKey("=")
 Tab & [::tabModKey("[")
 Tab & \::tabModKey("\")
 Tab & ]::tabModKey("]")
+Tab & `;::tabModKey(";")
 Tab & a::tabModKey("a")
 Tab & b::tabModKey("b")
 Tab & c::tabModKey("c")
@@ -128,18 +127,12 @@ Tab & d::tabModKey("d")
 Tab & e::tabModKey("e")
 Tab & f::tabModKey("f")
 Tab & g::tabModKey("g")
-Tab & j::tabModKey("j")
-~Tab & i::tabModKey("i")
-Tab & k::tabModKey("k")
 Tab & m::tabModKey("m")
 Tab & n::tabModKey("n")
-Tab & o::tabModKey("o")
-Tab & p::tabModKey("p")
 Tab & q::tabModKey("q")
 Tab & r::tabModKey("r")
 Tab & s::tabModKey("s")
 Tab & t::tabModKey("t")
-Tab & u::tabModKey("u")
 Tab & v::tabModKey("v")
 Tab & w::tabModKey("w")
 Tab & x::tabModKey("x")
