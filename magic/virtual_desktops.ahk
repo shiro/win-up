@@ -6,6 +6,10 @@ hwnd+=0x1000<<32
 
 hVirtualDesktopAccessor := DllCall("LoadLibrary", Str, A_ScriptDir "\lib\VirtualDesktopAccessor.dll", "Ptr") 
 
+if (!hVirtualDesktopAccessor){
+    msgbox ERROR: Failed to load library: "VirtualDesktopAccessor.dll"
+    exitApp
+}
 
 global GoToDesktopNumberProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "GoToDesktopNumber", "Ptr")
 global RegisterPostMessageHookProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, AStr, "RegisterPostMessageHook", "Ptr")
