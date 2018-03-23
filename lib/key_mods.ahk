@@ -55,8 +55,11 @@ CapsLock::Esc
 	}
 	Return
 
+
 ; prevent triggering tab on press down
-Tab::return
+Tab::
+	TIME_OF_LAST_TAB := A_TickCount
+	Return
 
 ; fix quick alt-tabbing
 ~!Tab::
@@ -65,7 +68,7 @@ Tab::return
 
 ; tab-modifier key
 Tab up::
-	if (A_PriorKey=="Tab" && !ALTTAB_MODE){
+	if (A_PriorKey=="Tab" && !ALTTAB_MODE && (A_TickCount - TIME_OF_LAST_TAB) < 200){
 		Send {Tab}
 	}
 	ALTTAB_MODE := false
