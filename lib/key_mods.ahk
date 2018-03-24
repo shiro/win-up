@@ -101,6 +101,19 @@ tabModKey(keys){
 ~Tab & o::tabModWindow(7)
 ~Tab & y::tabModWindow(8)
 
+
+; navigate virtual desktops with the mouse
+#RButton::
+	CoordMode, Mouse, Screen ; makes mouse coordinates to be relative to screen.
+	MouseGetPos xPos, yPos ; get mouse coordinates
+
+	targetDesktopId := floor(xPos / (A_ScreenWidth / 4)) + 1
+	targetDesktopId += (floor(yPos / (A_ScreenHeight / 2)) == 0) ? 0 : 4
+
+	GoToDesktop(targetDesktopId)
+	return
+
+
 ; misc keys
 Tab & 0::tabModKey("0")
 Tab & 1::tabModKey("1")
