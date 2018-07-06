@@ -1,13 +1,14 @@
 SetWorkingDir %A_ScriptDir%
-DetectHiddenWindows, On
+DetectHiddenWindows On
 
 hwnd:=WinExist("ahk_pid " . DllCall("GetCurrentProcessId","Uint"))
 hwnd+=0x1000<<32
 
-hVirtualDesktopAccessor := DllCall("LoadLibrary", Str, A_ScriptDir "\lib\VirtualDesktopAccessor.dll", "Ptr") 
+hVirtualDesktopAccessor := DllCall("LoadLibrary", Str, "VirtualDesktopAccessor.dll", "Ptr")
 
 if (!hVirtualDesktopAccessor){
-    msgbox ERROR: Failed to load library: "VirtualDesktopAccessor.dll"
+    ;msgbox ERROR: Failed to load library: "VirtualDesktopAccessor.dll"
+	msgbox % A_WorkingDir
     exitApp
 }
 
@@ -28,6 +29,7 @@ global UnPinAppProc := DllCall("GetProcAddress", Ptr, hVirtualDesktopAccessor, A
 
 global VIRTUAL_DESKTOP_FOCUS_AFTER_SWITCH := 1
 global VIRTUAL_DESKTOP_WRAP := 1
+global VIRTUAL_DESKTOP_TOKEN := 0 ; prevent focusing wrong window if switching quickly
 
 
 ; Restart the virtual desktop accessor when Explorer.exe crashes, or restarts (e.g. when coming from fullscreen game)

@@ -1,7 +1,6 @@
 ;#NoTrayIcon
 #Persistent
-#NoEnv
-#SingleInstance, Force
+#SingleInstance Force
 #MaxHotkeysPerInterval 1000
 #InstallMouseHook
 

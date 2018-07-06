@@ -122,9 +122,14 @@ _GetForemostWindowIdOnDesktop(n) {
 
 ; Give focus to the foremost window on the desktop.
 _Focus() {
+	current_token:=A_TickCount
+    VIRTUAL_DESKTOP_TOKEN:=current_token
+
     foremostWindowId := _GetForemostWindowIdOnDesktop(_GetCurrentDesktopNumber())
-	;tooltip % "is :" +foremostWindowId
-    WinActivate, ahk_id %foremostWindowId%
+
+	if (current_token==VIRTUAL_DESKTOP_TOKEN){
+        WinActivate, ahk_id %foremostWindowId%
+	}
 }
 
 ; Only give focus to the foremost window if it has been requested.
