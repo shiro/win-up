@@ -4,11 +4,13 @@ DetectHiddenWindows On
 hwnd:=WinExist("ahk_pid " . DllCall("GetCurrentProcessId","Uint"))
 hwnd+=0x1000<<32
 
-hVirtualDesktopAccessor := DllCall("LoadLibrary", Str, "src/lib/VirtualDesktopAccessor.dll", "Ptr")
+virtualDesktopAccessorPath := A_ScriptDir "\src\lib\VirtualDesktopAccessor.dll"
+
+
+hVirtualDesktopAccessor := DllCall("LoadLibrary", Str, virtualDesktopAccessorPath, "Ptr")
 
 if (!hVirtualDesktopAccessor){
-    msgbox ERROR: Failed to load library: "VirtualDesktopAccessor.dll"
-	msgbox % A_WorkingDir
+    msgbox % "ERROR: Failed to load library: " virtualDesktopAccessorPath " (err: " A_LastError ")"
     exitApp
 }
 

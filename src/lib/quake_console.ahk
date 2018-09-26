@@ -13,7 +13,9 @@ InitQuakeConsole() {
 
         WinWait quake console, , 5
         if ErrorLevel {
-			tooltip "couldn't find quake console instance"
+			tooltip "[WinUp] couldn't find quake console instance", 5
+			sleep 5000
+			tooltip
 			return
         }
     }
