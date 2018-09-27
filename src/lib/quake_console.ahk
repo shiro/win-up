@@ -54,7 +54,7 @@ HideQuakeConsole() {
 	WinHide, ahk_id %hw_mintty%
 
 	if (quake_autohide)
-		SetTimer, HideWhenInactive, Off
+	SetTimer, HideWhenInactive, Off
 }
 
 ToggleQuakeConsole() {
