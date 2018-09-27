@@ -6,20 +6,20 @@
 
 #Include %A_ScriptDir%
 
-; Executable code
 
+; init
 #include src
-	#include virtual_desktops.ahk
 	#include main.ahk
-	#include quake_console.ahk
+  #include virtualDesktops/init.ahk
+	#include quakeConsole/init.ahk
 #Include %A_ScriptDir%
 
 
-; Includes
 
-#include src/lib
-	#include virtual_desktops.ahk
-	#include key_mods.ahk
-	#include window_handle.ahk
-	#include quake_console.ahk
+; functions
+#include src
+  #include virtualDesktops/virtualDesktops.ahk
+	#include keyMods/keyMods.ahk
+	#include windowHandling/windowHandling.ahk
+	#include quakeConsole/quakeConsole.ahk
 #Include %A_ScriptDir%
