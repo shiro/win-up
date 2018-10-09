@@ -11,7 +11,7 @@
 #include src
 	#include main.ahk
   #include virtualDesktops/init.ahk
-	#include quakeConsole/init.ahk
+	;#include quakeConsole/init.ahk
 #Include %A_ScriptDir%
 
 
@@ -21,5 +21,6 @@
   #include virtualDesktops/virtualDesktops.ahk
 	#include keyMods/keyMods.ahk
 	#include windowHandling/windowHandling.ahk
-	#include quakeConsole/quakeConsole.ahk
+	;#include quakeConsole/quakeConsole.ahk
+	#include misc/keepass.ahk
 #Include %A_ScriptDir%
