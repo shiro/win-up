@@ -1,4 +1,4 @@
-minttyPath := "C:\etc\wsl-terminal\open-wsl.exe"
+minttyPath := "C:\etc\term\open-wsl.exe"
 minttyArgs := "-t ""quake console"" -b ""-e TMUX_ID=2 -e ATTACH=1"""
 
 alwaysOnTop := 1
