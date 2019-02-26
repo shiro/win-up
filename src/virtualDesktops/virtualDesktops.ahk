@@ -88,12 +88,12 @@ _ChangeDesktop(n:=1) {
     dist := n - desktopPos
 
 	; prefer key-based switch over dll, as it's less likely to flash
-    if (dist == 1)
-		send ^#{right}
-    else if (dist == -1)
-		send ^#{left}
-    else
-        DllCall(GoToDesktopNumberProc, Int, n-1)
+  if (dist == 1)
+    send ^#{right}
+  else if (dist == -1)
+    send ^#{left}
+  else
+    DllCall(GoToDesktopNumberProc, Int, n-1)
 }
 
 _MoveCurrentWindowToDesktop(n:=1) {
@@ -115,7 +115,7 @@ _GetForemostWindowIdOnDesktop(n) {
         windowIsOnDesktop := DllCall(IsWindowOnDesktopNumberProc, UInt, WindowID, UInt, n)
         ; Select the first (and foremost) window which is in the specified desktop.
         if (WindowIsOnDesktop == 1) {
-            return WindowID
+          return WindowID
         }
     }
 }
@@ -123,21 +123,21 @@ _GetForemostWindowIdOnDesktop(n) {
 ; Give focus to the foremost window on the desktop.
 _Focus() {
 	current_token:=A_TickCount
-    VIRTUAL_DESKTOP_TOKEN:=current_token
+  VIRTUAL_DESKTOP_TOKEN:=current_token
 
-    foremostWindowId := _GetForemostWindowIdOnDesktop(_GetCurrentDesktopNumber())
+  foremostWindowId := _GetForemostWindowIdOnDesktop(_GetCurrentDesktopNumber())
 
 	if (current_token==VIRTUAL_DESKTOP_TOKEN){
-        WinActivate, ahk_id %foremostWindowId%
+    WinActivate, ahk_id %foremostWindowId%
 	}
 }
 
 ; Only give focus to the foremost window if it has been requested.
 _FocusIfRequested() {
-    if (VIRTUAL_DESKTOP_FOCUS_AFTER_SWITCH) {
-        _Focus()
-        VIRTUAL_DESKTOP_FOCUS_AFTER_SWITCH=0
-    }
+  if (VIRTUAL_DESKTOP_FOCUS_AFTER_SWITCH) {
+    _Focus()
+    VIRTUAL_DESKTOP_FOCUS_AFTER_SWITCH=0
+  }
 }
 
 ; Listeners
