@@ -155,6 +155,23 @@ Tab & w::tabModKey("w")
 Tab & x::tabModKey("x")
 Tab & z::tabModKey("z")
 
+Tab & f1::tabModKey("{f1}")
+Tab & f2::tabModKey("{f2}")
+Tab & f3::tabModKey("{f3}")
+Tab & f4::tabModKey("{f4}")
+Tab & f5::tabModKey("{f5}")
+Tab & f6::tabModKey("{f6}")
+Tab & f7::tabModKey("{f7}")
+Tab & f8::tabModKey("{f8}")
+Tab & f9::tabModKey("{f9}")
+Tab & f10::tabModKey("{f10}")
+Tab & f11::tabModKey("{f11}")
+Tab & f12::tabModKey("{f12}")
+
+Tab & Delete::tabModKey("{Delete}")
+Tab & Pause::tabModKey("{Pause}")
+Tab & Home::tabModKey("{Home}")
+
 
 ; special chars
 !a::Send ä
