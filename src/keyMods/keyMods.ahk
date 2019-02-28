@@ -12,7 +12,7 @@ CapsLock::Esc
 #IfWinActive
 
 ; vim like arrow keys
-#IfWinNotActive, ahk_group idea
+; #IfWinNotActive, ahk_group idea
 !h::send {Left}
 !j::send {Down}
 !k::send {Up}
@@ -25,7 +25,7 @@ CapsLock::Esc
 ; also with CS modifier
 !^+l::send ^+{Right}
 !^+h::send ^+{Left}
-#IfWinNotActive
+; #IfWinNotActive
 
 
 ; exit the script
