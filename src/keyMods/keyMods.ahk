@@ -101,6 +101,9 @@ tabModKey(keys){
 ~Tab & o::tabModWindow(7)
 ~Tab & y::tabModWindow(8)
 
+; adjust system volume
+#NumpadAdd::Send {Volume_Up 2}
+#NumpadSub::Send {Volume_Down 2}
 
 ; navigate virtual desktops with the mouse
 #RButton::
