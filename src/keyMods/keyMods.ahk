@@ -210,14 +210,22 @@ Tab & Home::tabModKey("{Home}")
 ; other symbols
 :?O:;2exp::²
 :?O:;3exp::³
+:?O:;angle::∠
 :?O:;copyright::©
 :?O:;degree::°
+:?O:;dollar::$
 :?O:;euro::€
 :?O:;lol::笑
 :?O:;micro::µ
+:?O:;micro::μ
 :?O:;neko::猫
+:?O:;no::✗
+:?O:;pi::π
 :?O:;pound::£
 :?O:;shiro::白
-:?O:;usagi::兎
 :?O:;shrug::¯\_(ツ)_/¯
-
+:?O:;star::★
+:?O:;sum::∑
+:?O:;usagi::兎
+:?O:;yen::円
+:?O:;yes::✓
