@@ -90,6 +90,13 @@ tabModKey(keys){
 }
 
 
+; switch to app
+switchToApplication(application){
+	IfWinNotActive, %application%
+	WinActivate, %application%
+}
+
+
 ; virtual desktops
 ~Tab & h::tabModWindow(1)
 ~Tab & j::tabModWindow(2)
@@ -105,6 +112,7 @@ tabModKey(keys){
 #NumpadAdd::Send {Volume_Up 2}
 #NumpadSub::Send {Volume_Down 2}
 
+
 ; navigate virtual desktops with the mouse
 #RButton::
 	CoordMode, Mouse, Screen ; makes mouse coordinates to be relative to screen.
@@ -119,7 +127,7 @@ tabModKey(keys){
 
 ; misc keys
 Tab & 0::tabModKey("0")
-Tab & 1::tabModKey("1")
+Tab & 1::switchToApplication("Vivaldi")
 Tab & 2::tabModKey("2")
 Tab & 3::tabModKey("3")
 Tab & 4::tabModKey("4")
