@@ -128,7 +128,12 @@ switchToApplication(application){
 ; misc keys
 Tab & 0::tabModKey("0")
 Tab & 1::switchToApplication("Vivaldi")
-Tab & 2::switchToApplication("Thunderbird")
+Tab & 2::
+  if (!WinActive("Thunderbird"))
+    switchToApplication("Thunderbird")
+  else
+    WinMinimize
+  return
 Tab & 3::tabModKey("3")
 Tab & 4::tabModKey("4")
 Tab & 5::tabModKey("5")
