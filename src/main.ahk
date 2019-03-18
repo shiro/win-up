@@ -1,5 +1,5 @@
 ; match partial titles
-SetTitleMatchMode 2
+SetTitleMatchMode, 2
 
 
 ; intelij group
