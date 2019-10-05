@@ -10,7 +10,7 @@ Simply run the main script with `autohotkey (x64)`.
 
 ## Credits
 
-The smooth desktop switching works with the help of [VirtualDesktopAccessor.dll](https://github.com/Ciantic/VirtualDesktopAccessor/blob/master/README.markdown).
+The smooth desktop switching works with the help of [VirtualDesktopAccessor.dll](https://github.com/Ciantic/VirtualDesktopAccessor).
 
 *note:*
 
